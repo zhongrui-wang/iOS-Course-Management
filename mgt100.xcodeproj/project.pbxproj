@@ -12,9 +12,12 @@
 		226DB563237CF31500E42CF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 226DB561237CF31500E42CF0 /* Main.storyboard */; };
 		226DB565237CF31700E42CF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226DB564237CF31700E42CF0 /* Assets.xcassets */; };
 		226DB568237CF31700E42CF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 226DB566237CF31700E42CF0 /* LaunchScreen.storyboard */; };
+		226DB570237CF5BB00E42CF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 226DB56F237CF5BB00E42CF0 /* GoogleService-Info.plist */; };
+		59D3B03150E7A9254BCD8638 /* Pods_mgt100.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6BAFD7B646C57C4384380B /* Pods_mgt100.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0596A116D480E923E44B4406 /* Pods-mgt100.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mgt100.debug.xcconfig"; path = "Target Support Files/Pods-mgt100/Pods-mgt100.debug.xcconfig"; sourceTree = "<group>"; };
 		226DB55A237CF31500E42CF0 /* mgt100.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mgt100.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		226DB55D237CF31500E42CF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		226DB55F237CF31500E42CF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,9 @@
 		226DB564237CF31700E42CF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		226DB567237CF31700E42CF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		226DB569237CF31700E42CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		226DB56F237CF5BB00E42CF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4A6BAFD7B646C57C4384380B /* Pods_mgt100.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mgt100.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7325BBAFE70642081BF289CC /* Pods-mgt100.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mgt100.release.xcconfig"; path = "Target Support Files/Pods-mgt100/Pods-mgt100.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59D3B03150E7A9254BCD8638 /* Pods_mgt100.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				226DB55C237CF31500E42CF0 /* mgt100 */,
 				226DB55B237CF31500E42CF0 /* Products */,
+				F359E9E25D3261088E120924 /* Pods */,
+				F2051DA179F56AB2B43FECF7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +69,27 @@
 				226DB564237CF31700E42CF0 /* Assets.xcassets */,
 				226DB566237CF31700E42CF0 /* LaunchScreen.storyboard */,
 				226DB569237CF31700E42CF0 /* Info.plist */,
+				226DB56F237CF5BB00E42CF0 /* GoogleService-Info.plist */,
 			);
 			path = mgt100;
+			sourceTree = "<group>";
+		};
+		F2051DA179F56AB2B43FECF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A6BAFD7B646C57C4384380B /* Pods_mgt100.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F359E9E25D3261088E120924 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0596A116D480E923E44B4406 /* Pods-mgt100.debug.xcconfig */,
+				7325BBAFE70642081BF289CC /* Pods-mgt100.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 226DB56C237CF31700E42CF0 /* Build configuration list for PBXNativeTarget "mgt100" */;
 			buildPhases = (
+				B4088B5615FF8E892BF1595A /* [CP] Check Pods Manifest.lock */,
 				226DB556237CF31500E42CF0 /* Sources */,
 				226DB557237CF31500E42CF0 /* Frameworks */,
 				226DB558237CF31500E42CF0 /* Resources */,
+				7FAB7DF3142733AADB9E1853 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,12 +153,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				226DB568237CF31700E42CF0 /* LaunchScreen.storyboard in Resources */,
+				226DB570237CF5BB00E42CF0 /* GoogleService-Info.plist in Resources */,
 				226DB565237CF31700E42CF0 /* Assets.xcassets in Resources */,
 				226DB563237CF31500E42CF0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7FAB7DF3142733AADB9E1853 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mgt100/Pods-mgt100-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mgt100/Pods-mgt100-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mgt100/Pods-mgt100-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4088B5615FF8E892BF1595A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mgt100-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		226DB556237CF31500E42CF0 /* Sources */ = {
@@ -280,6 +353,7 @@
 		};
 		226DB56D237CF31700E42CF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0596A116D480E923E44B4406 /* Pods-mgt100.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +372,7 @@
 		};
 		226DB56E237CF31700E42CF0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7325BBAFE70642081BF289CC /* Pods-mgt100.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
