@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		226DB565237CF31700E42CF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226DB564237CF31700E42CF0 /* Assets.xcassets */; };
 		226DB568237CF31700E42CF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 226DB566237CF31700E42CF0 /* LaunchScreen.storyboard */; };
 		226DB570237CF5BB00E42CF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 226DB56F237CF5BB00E42CF0 /* GoogleService-Info.plist */; };
+		226DB590237F7BCD00E42CF0 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226DB58F237F7BCD00E42CF0 /* Modal.swift */; };
 		59D3B03150E7A9254BCD8638 /* Pods_mgt100.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6BAFD7B646C57C4384380B /* Pods_mgt100.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		226DB567237CF31700E42CF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		226DB569237CF31700E42CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		226DB56F237CF5BB00E42CF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		226DB58F237F7BCD00E42CF0 /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		4A6BAFD7B646C57C4384380B /* Pods_mgt100.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mgt100.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7325BBAFE70642081BF289CC /* Pods-mgt100.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mgt100.release.xcconfig"; path = "Target Support Files/Pods-mgt100/Pods-mgt100.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +72,7 @@
 				226DB566237CF31700E42CF0 /* LaunchScreen.storyboard */,
 				226DB569237CF31700E42CF0 /* Info.plist */,
 				226DB56F237CF5BB00E42CF0 /* GoogleService-Info.plist */,
+				226DB58F237F7BCD00E42CF0 /* Modal.swift */,
 			);
 			path = mgt100;
 			sourceTree = "<group>";
@@ -88,7 +91,6 @@
 				0596A116D480E923E44B4406 /* Pods-mgt100.debug.xcconfig */,
 				7325BBAFE70642081BF289CC /* Pods-mgt100.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -209,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				226DB560237CF31500E42CF0 /* ViewController.swift in Sources */,
+				226DB590237F7BCD00E42CF0 /* Modal.swift in Sources */,
 				226DB55E237CF31500E42CF0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

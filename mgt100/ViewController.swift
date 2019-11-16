@@ -9,49 +9,98 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseFirestore
+import Firebase
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var ref: DatabaseReference!
-    var databaseHandle: DatabaseHandle!
+    struct APIResults:Codable {
+        let results: [Months]
+    }
+    
+    struct Months:Codable {
+        let month: String
+        let description: [MonthDetail]
+    }
+    
+    struct MonthDetail: Codable {
+        let assignments: [String]
+        let readings: [String]
+        let tas: [String]
+        let date: Int!
+    }
+    
+    
+    
+    var theFallData: APIResults?
+    var theMonthData: [Months] = []
+    var assignments: [String] = []
+    var tas: [String] = []
+    var readings: [String] = []
+    
+    
+    //Main table view
+    @IBOutlet weak var tableView: UITableView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
-
-        
-        let db = Firestore.firestore()
-        
-        //Getting from the months collection, the month of January
-        let January = db.collection("months").document("January")
-        
-        //Reading all the documents (which are days) from the document January
-        January.collection("days").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                print("January")
-                for document in querySnapshot!.documents {
-                    print("DAY: \(document.documentID)")
-                    
-                    //Getting all TAs as an array
-                    print("Array of TAs")
-                    if let tas = document.data()["tas"] as? NSArray {
-                        print(tas)
-                        //print("First TA: \(tas[0])")
-                    }
-                    
-                    //Getting all Readings as an array
-                    print("Array of readings")
-                    if let readings = document.data()["readings"] as? NSArray {
-                        print(readings)
-                    }
-                    
-                    
-                }
-            }
-        }
-        
+        self.grabFirebaseData()
+        self.setUpTableView()
     }
+    
+    func grabFirebaseData(){
+        let ref = Database.database().reference()
+        ref.observe(.value, with: { snapshot in
+            guard let value = snapshot.value as? [String: Any] else { return }
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: value, options: [])
+                self.theFallData = try JSONDecoder().decode(APIResults.self, from: jsonData)
+            } catch let error {
+                print(error)
+            }
+            
+            for i in self.theFallData!.results{
+                self.theMonthData.append(i)
+            }
+        
+           
+            
+            self.tableView.reloadData()
+        })
+    }
+    
+    func setUpTableView(){
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
+
+    //Header of each section
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.theFallData?.results[section].month
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.theFallData?.results.count ?? 0
+    }
+
+    //Each section
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        cell.textLabel?.text = String(self.theMonthData[indexPath.row].description[indexPath.row].date)
+        self.assignments = self.theMonthData[indexPath.row].description[indexPath.row].assignments
+        cell.detailTextLabel?.text = self.assignments[0] + self.assignments[1]
+
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.theMonthData.count
+    }
+    
+   
+
 }
 
