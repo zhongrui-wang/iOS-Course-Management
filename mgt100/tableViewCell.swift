@@ -13,20 +13,11 @@ class tableViewCell: UITableViewCell {
 
     @IBOutlet weak var date: UILabel!
     
-    @IBOutlet weak var readings: UILabel!
-    
     @IBOutlet weak var detailReading: UILabel!
-    
-    @IBOutlet weak var assignments: UILabel!
     
     @IBOutlet weak var detailAssignment: UILabel!
     
-    @IBOutlet weak var tahours: UILabel!
-    
     @IBOutlet weak var detailTA: UILabel!
-    
-    @IBOutlet weak var location: MKMapView!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

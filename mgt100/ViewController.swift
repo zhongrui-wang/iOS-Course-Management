@@ -65,7 +65,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             for i in self.theFallData!.results{
                 self.theMonthData.append(i)
             }
-        
+            print("fetched!")
             self.tableView.reloadData()
         })
     }
@@ -89,9 +89,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! tableViewCell
-        cell.date.text = String(self.theMonthData[indexPath.row].description[indexPath.row].date)
-        self.assignments = self.theMonthData[indexPath.row].description[indexPath.row].assignments
-        cell.detailReading.text = "\(self.assignments[0]), \(self.assignments[1])"
+        cell.date.text = String(self.theMonthData[indexPath.section].description[indexPath.row].date)
+        
+        let arrayOfAssignment = self.theMonthData[indexPath.section].description[indexPath.row].assignments.joined(separator: ", ")
+        let arrayOfReadings = self.theMonthData[indexPath.section].description[indexPath.row].readings.joined(separator: ", ")
+        let arrayOfTaS = self.theMonthData[indexPath.section].description[indexPath.row].tas.joined(separator: ", ")
+        
+        cell.detailAssignment.text = arrayOfAssignment
+        cell.detailReading.text = arrayOfReadings
+        cell.detailTA.text = arrayOfTaS
+        cell.selectionStyle = .none
+//        self.assignments = self.theMonthData[indexPath.row].description[indexPath.row].assignments
+//        cell.detailReading.text = "\(self.assignments[0]), \(self.assignments[1])"
         
         
 //        date.text = String(self.theMonthData[indexPath.row].description[indexPath.row].date)
@@ -116,7 +125,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(expandedIndexpath == indexPath){
             if dateCellExpanded {
-                return 500
+                return 350
             } else {
                 return 40
             }
@@ -125,7 +134,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.theMonthData.count
+        return (self.theFallData?.results[section].description.count)!
     }
     
    
