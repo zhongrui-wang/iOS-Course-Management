@@ -91,7 +91,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! tableViewCell
         cell.date.text = String(self.theMonthData[indexPath.row].description[indexPath.row].date)
         self.assignments = self.theMonthData[indexPath.row].description[indexPath.row].assignments
-        cell.detailReading.text = "\(self.assignments[0]), \(self.assignments[1])"
+        cell.detailReading.text = "\(self.assignments[0])"
         
         
 //        date.text = String(self.theMonthData[indexPath.row].description[indexPath.row].date)
