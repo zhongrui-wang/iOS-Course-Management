@@ -80,7 +80,7 @@
                                                         <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="kPc-hm-PXk" kind="show" id="GaP-6m-v6P"/>
+                                                        <action selector="loadDetail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NXR-pX-3Ho"/>
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L0K-Zp-Ibc">
@@ -149,13 +149,19 @@
             </objects>
             <point key="canvasLocation" x="2971" y="800"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="2ZK-K5-WhQ">
             <objects>
-                <viewController id="kPc-hm-PXk" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="kPc-hm-PXk" customClass="DetailViewController" customModule="mgt100" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tXn-aH-JJ4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="znm-9r-IZa">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="HxT-oK-yvl"/>
                     </view>
@@ -163,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxm-qD-bp7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3755.0724637681164" y="65.625"/>
+            <point key="canvasLocation" x="4082.6086956521744" y="65.625"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="Knj-4U-wB8">
@@ -190,6 +196,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xiO-kE-66H" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uHP-DN-qHh">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

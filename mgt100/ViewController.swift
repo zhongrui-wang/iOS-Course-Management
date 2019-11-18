@@ -38,6 +38,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var dateCellExpanded: Bool = false
     var expandedIndexpath = IndexPath()
     
+    var indexPathSelected: IndexPath?
+    
+    
+    //Store value from each row
+    var arrayOfTas: [String] = []
     
     //Main table view
     @IBOutlet weak var tableView: UITableView!
@@ -111,6 +116,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
         if dateCellExpanded {
             dateCellExpanded = false
         } else {
@@ -119,6 +125,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         expandedIndexpath = indexPath
         tableView.beginUpdates()
         tableView.endUpdates()
+        indexPathSelected = indexPath
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -136,7 +143,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return (self.theFallData?.results[section].description.count)!
     }
     
-   
+    
+    @IBAction func loadDetail(_ sender: UIButton) {
+        let mainStoryBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailedViewController = mainStoryBoard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+        print(indexPathSelected!)
+        detailedViewController.date = String(self.theMonthData[(indexPathSelected!.section)].description[indexPathSelected!.row].date)
+    
+        
+        self.navigationController?.pushViewController(detailedViewController, animated: true)
+    }
 
 }
 
