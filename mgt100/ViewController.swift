@@ -73,7 +73,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func setUpTableView(){
         tableView.dataSource = self
         tableView.delegate = self
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
     //Header of each section
@@ -84,10 +83,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.theFallData?.results.count ?? 0
     }
+    
+    //Table view header styling
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).backgroundView?.backgroundColor = UIColor(red: 0.18, green: 0.49, blue: 0.82, alpha: 1)
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 20.0)
+    }
+
 
     //Each section
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! tableViewCell
 
         cell.date.text = String(self.theMonthData[indexPath.section].description[indexPath.row].date)
@@ -100,15 +107,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.detailReading.text = arrayOfReadings
         cell.detailTA.text = arrayOfTaS
         cell.selectionStyle = .none
-//        self.assignments = self.theMonthData[indexPath.row].description[indexPath.row].assignments
-//        cell.detailReading.text = "\(self.assignments[0]), \(self.assignments[1])"
-        
-        
-//        date.text = String(self.theMonthData[indexPath.row].description[indexPath.row].date)
-//        cell.textLabel?.text = String(self.theMonthData[indexPath.row].description[indexPath.row].date)
-//        self.assignments = self.theMonthData[indexPath.row].description[indexPath.row].assignments
-//        cell.detailTextLabel?.text = self.assignments[0] + self.assignments[1]
-
         return cell
     }
     
@@ -126,12 +124,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(expandedIndexpath == indexPath){
             if dateCellExpanded {
-                return 350
+                return 400
             } else {
-                return 40
+                return 65.33
             }
         }
-        return 40
+        return 65.33
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
