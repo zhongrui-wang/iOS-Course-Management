@@ -148,9 +148,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let mainStoryBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let detailedViewController = mainStoryBoard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         
-        print(indexPathSelected!)
-        detailedViewController.date = String(self.theMonthData[(indexPathSelected!.section)].description[indexPathSelected!.row].date)
-    
+        let arrayOfAssignment = self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].assignments.joined(separator: ", ")
+        let arrayOfReadings = self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].readings.joined(separator: ", ")
+        
+        detailedViewController.readings = arrayOfReadings
+        detailedViewController.assignmnets = arrayOfAssignment
+        detailedViewController.date = "\(self.theMonthData[(indexPathSelected!.section)].month), \(String( self.theMonthData[(indexPathSelected!.section)].description[indexPathSelected!.row].date))"
+        detailedViewController.teachingAssistans = self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].tas
         
         self.navigationController?.pushViewController(detailedViewController, animated: true)
     }
