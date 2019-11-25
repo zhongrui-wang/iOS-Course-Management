@@ -8,13 +8,16 @@
 
 import UIKit
 import MapKit
+import WebKit
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var taHours: UILabel!
-    @IBOutlet weak var theTableView: UITableView!
-    @IBOutlet weak var detailedReadings: UILabel!
+    @IBOutlet weak var taTableView: UITableView!
+    @IBOutlet weak var readingTableView: UITableView!
+    
+    
     @IBOutlet weak var detailedAssignments: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -25,11 +28,12 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var region: MKCoordinateRegion?
     var location: CLLocationCoordinate2D?
     
+    var arrayOfReadings: [ViewController.Readings] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dateLabel.text = date
-        detailedReadings.text = readings
         detailedAssignments.text = assignmnets
         setUpTableView()
         
@@ -43,19 +47,56 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func setUpTableView(){
-        theTableView.dataSource = self
-        theTableView.delegate = self
-        theTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        taTableView.dataSource = self
+        taTableView.delegate = self
+        readingTableView.dataSource = self
+        readingTableView.delegate = self
+        taTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        readingTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return teachingAssistans.count
+        if(tableView == self.taTableView){
+            return teachingAssistans.count
+        }
+        
+        return arrayOfReadings.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-        cell.textLabel!.text = teachingAssistans[indexPath.row]
-        return cell
+        if(tableView == self.taTableView){
+            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+            cell.textLabel!.text = teachingAssistans[indexPath.row]
+            return cell
+        } else {
+            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+            cell.textLabel?.text = arrayOfReadings[indexPath.row].name
+            
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(tableView == self.taTableView){
+            
+        } else {
+            if(arrayOfReadings[indexPath.row].link == ""){
+                let refreshAlert = UIAlertController(title: "No pdf available", message: "Sorry we dont have this pdf in our database", preferredStyle: UIAlertController.Style.alert)
+                refreshAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                
+                self.present(refreshAlert, animated: true, completion: nil)
+            } else {
+                let webView = WKWebView(frame: self.view.frame)
+                let urlRequest = URLRequest(url: URL(string: arrayOfReadings[indexPath.row].link)!)
+                webView.load(urlRequest as URLRequest)
+                
+                let pdfVC = UIViewController()
+                pdfVC.view.addSubview(webView)
+                pdfVC.title = arrayOfReadings[indexPath.row].name
+                self.navigationController?.pushViewController(pdfVC, animated: true)
+            }
+           
+        }
     }
     
     func setupMap(){

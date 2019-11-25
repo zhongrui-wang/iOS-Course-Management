@@ -24,6 +24,7 @@ class DetailedTAViewController: UIViewController {
     var detailGraduation: String?
     var detailMajor: String?
     var detailFunFact: String?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

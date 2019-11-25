@@ -24,9 +24,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     struct MonthDetail: Codable {
         let assignments: [String]
-        let readings: [String]
+        let readings: [Readings]
         let tas: [String]
         let date: Int!
+    }
+    
+    struct Readings: Codable {
+        let name: String
+        let link: String
     }
     
     
@@ -105,11 +110,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.date.text = String(self.theMonthData[indexPath.section].description[indexPath.row].date)
         
         let arrayOfAssignment = self.theMonthData[indexPath.section].description[indexPath.row].assignments.joined(separator: ", ")
-        let arrayOfReadings = self.theMonthData[indexPath.section].description[indexPath.row].readings.joined(separator: ", ")
+        
+        var dumpReading = ""
+        
+        for (i, b) in self.theMonthData[indexPath.section].description[indexPath.row].readings.enumerated() {
+            if(i == self.theMonthData[indexPath.section].description[indexPath.row].readings.count-1) {
+                dumpReading += "\(b.name)"
+                
+            }else{
+                dumpReading += "\(b.name), "
+            }
+            
+            
+        }
+        
         let arrayOfTaS = self.theMonthData[indexPath.section].description[indexPath.row].tas.joined(separator: ", ")
         
         cell.detailAssignment.text = arrayOfAssignment
-        cell.detailReading.text = arrayOfReadings
+        cell.detailReading.text = dumpReading
         cell.detailTA.text = arrayOfTaS
         cell.selectionStyle = .none
         return cell
@@ -149,9 +167,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let detailedViewController = mainStoryBoard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         
         let arrayOfAssignment = self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].assignments.joined(separator: ", ")
-        let arrayOfReadings = self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].readings.joined(separator: ", ")
         
-        detailedViewController.readings = arrayOfReadings
+        detailedViewController.arrayOfReadings = self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].readings
         detailedViewController.assignmnets = arrayOfAssignment
         detailedViewController.date = "\(self.theMonthData[(indexPathSelected!.section)].month), \(String( self.theMonthData[(indexPathSelected!.section)].description[indexPathSelected!.row].date))"
         detailedViewController.teachingAssistans = self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].tas
