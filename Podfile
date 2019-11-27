@@ -10,5 +10,6 @@ target 'mgt100' do
     pod 'Firebase/Database'
     pod 'Firebase/Firestore'
     pod 'CLTypingLabel'
+    pod 'Firebase/Auth'
 
 end
