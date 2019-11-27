@@ -588,13 +588,6 @@
                                     <action selector="emailTextField:" destination="tCz-SS-qFz" eventType="editingDidEnd" id="aVU-Y6-n7x"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Xr-km-d6t">
-                                <rect key="frame" x="80" y="565" width="255" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJR-5T-PCM">
                                 <rect key="frame" x="112" y="660" width="198" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -636,7 +629,6 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="BPR-yN-1bv" id="IIP-4z-CcJ"/>
-                        <outlet property="passwordTextField" destination="9Xr-km-d6t" id="A7R-Ce-cOD"/>
                         <segue destination="b1t-fF-9Pc" kind="show" identifier="RegisterToChat" id="O6j-Ja-dKz"/>
                     </connections>
                 </viewController>
@@ -711,6 +703,6 @@
         <image name="user" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="itv-Fz-7QI"/>
+        <segue reference="O6j-Ja-dKz"/>
     </inferredMetricsTieBreakers>
 </document>
