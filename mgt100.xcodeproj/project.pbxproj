@@ -10,6 +10,9 @@
 		2200F311238E14F80007DCE9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F310238E14F70007DCE9 /* RegisterViewController.swift */; };
 		2200F313238E18F40007DCE9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F312238E18F40007DCE9 /* LoginViewController.swift */; };
 		2200F315238E1B250007DCE9 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F314238E1B250007DCE9 /* ChatViewController.swift */; };
+		2200F31E238F2F540007DCE9 /* message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F31D238F2F540007DCE9 /* message.swift */; };
+		2200F325238F31A80007DCE9 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F323238F31A80007DCE9 /* MessageTableViewCell.swift */; };
+		2200F326238F31A80007DCE9 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2200F324238F31A80007DCE9 /* MessageTableViewCell.xib */; };
 		226DB55E237CF31500E42CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226DB55D237CF31500E42CF0 /* AppDelegate.swift */; };
 		226DB560237CF31500E42CF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226DB55F237CF31500E42CF0 /* ViewController.swift */; };
 		226DB563237CF31500E42CF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 226DB561237CF31500E42CF0 /* Main.storyboard */; };
@@ -30,6 +33,9 @@
 		2200F310238E14F70007DCE9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2200F312238E18F40007DCE9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2200F314238E1B250007DCE9 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		2200F31D238F2F540007DCE9 /* message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = message.swift; sourceTree = "<group>"; };
+		2200F323238F31A80007DCE9 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		2200F324238F31A80007DCE9 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		226DB55A237CF31500E42CF0 /* mgt100.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mgt100.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		226DB55D237CF31500E42CF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		226DB55F237CF31500E42CF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +66,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2200F31C238F2F3A0007DCE9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2200F31D238F2F540007DCE9 /* message.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2200F31F238F300E0007DCE9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				226DB55F237CF31500E42CF0 /* ViewController.swift */,
+				2200F310238E14F70007DCE9 /* RegisterViewController.swift */,
+				2200F312238E18F40007DCE9 /* LoginViewController.swift */,
+				22FD223A2384D74800EF9B78 /* TaViewController.swift */,
+				22FD223823830FA700EF9B78 /* DetailViewController.swift */,
+				22FD223C2384E10A00EF9B78 /* DetailedTAViewController.swift */,
+				2200F314238E1B250007DCE9 /* ChatViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2200F320238F315D0007DCE9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2200F323238F31A80007DCE9 /* MessageTableViewCell.swift */,
+				2200F324238F31A80007DCE9 /* MessageTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		226DB551237CF31500E42CF0 = {
 			isa = PBXGroup;
 			children = (
@@ -81,22 +118,18 @@
 		226DB55C237CF31500E42CF0 /* mgt100 */ = {
 			isa = PBXGroup;
 			children = (
+				2200F31C238F2F3A0007DCE9 /* Models */,
 				226DB55D237CF31500E42CF0 /* AppDelegate.swift */,
-				226DB55F237CF31500E42CF0 /* ViewController.swift */,
-				2200F310238E14F70007DCE9 /* RegisterViewController.swift */,
-				2200F312238E18F40007DCE9 /* LoginViewController.swift */,
+				2200F320238F315D0007DCE9 /* Views */,
+				2200F31F238F300E0007DCE9 /* ViewControllers */,
 				23A80E4E23809C4900F8F9AF /* tableViewCell.swift */,
 				226DB561237CF31500E42CF0 /* Main.storyboard */,
-				2200F314238E1B250007DCE9 /* ChatViewController.swift */,
-				22FD223A2384D74800EF9B78 /* TaViewController.swift */,
 				23A80E5023809D1F00F8F9AF /* readmore.swift */,
 				226DB564237CF31700E42CF0 /* Assets.xcassets */,
 				226DB566237CF31700E42CF0 /* LaunchScreen.storyboard */,
 				226DB569237CF31700E42CF0 /* Info.plist */,
 				226DB56F237CF5BB00E42CF0 /* GoogleService-Info.plist */,
 				226DB58F237F7BCD00E42CF0 /* Modal.swift */,
-				22FD223823830FA700EF9B78 /* DetailViewController.swift */,
-				22FD223C2384E10A00EF9B78 /* DetailedTAViewController.swift */,
 			);
 			path = mgt100;
 			sourceTree = "<group>";
@@ -180,6 +213,7 @@
 			files = (
 				226DB568237CF31700E42CF0 /* LaunchScreen.storyboard in Resources */,
 				226DB570237CF5BB00E42CF0 /* GoogleService-Info.plist in Resources */,
+				2200F326238F31A80007DCE9 /* MessageTableViewCell.xib in Resources */,
 				226DB565237CF31700E42CF0 /* Assets.xcassets in Resources */,
 				226DB563237CF31500E42CF0 /* Main.storyboard in Resources */,
 			);
@@ -239,7 +273,9 @@
 				2200F315238E1B250007DCE9 /* ChatViewController.swift in Sources */,
 				22FD223D2384E10A00EF9B78 /* DetailedTAViewController.swift in Sources */,
 				23A80E4F23809C4900F8F9AF /* tableViewCell.swift in Sources */,
+				2200F31E238F2F540007DCE9 /* message.swift in Sources */,
 				23A80E5123809D1F00F8F9AF /* readmore.swift in Sources */,
+				2200F325238F31A80007DCE9 /* MessageTableViewCell.swift in Sources */,
 				22FD223923830FA700EF9B78 /* DetailViewController.swift in Sources */,
 				226DB590237F7BCD00E42CF0 /* Modal.swift in Sources */,
 				22FD223B2384D74800EF9B78 /* TaViewController.swift in Sources */,

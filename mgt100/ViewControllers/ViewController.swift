@@ -51,6 +51,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //Main table view
     @IBOutlet weak var tableView: UITableView!
+
+    @IBAction func addingToCalendar(_ sender: UIButton) {
+    }
     
 
     override func viewDidLoad() {
@@ -149,7 +152,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(expandedIndexpath == indexPath){
             if dateCellExpanded {
-                return 400
+                return 484
             } else {
                 return 65.33
             }
