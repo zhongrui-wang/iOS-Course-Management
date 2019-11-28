@@ -11,5 +11,6 @@ target 'mgt100' do
     pod 'Firebase/Firestore'
     pod 'CLTypingLabel'
     pod 'Firebase/Auth'
+    pod 'IQKeyboardManager'
 
 end
