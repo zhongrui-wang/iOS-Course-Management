@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseFirestore
 import Firebase
+import EventKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -45,14 +46,46 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var indexPathSelected: IndexPath?
     
+    var getMonthName: String!
     
     //Store value from each row
     var arrayOfTas: [String] = []
-    
+    var dateComponents = DateComponents()
     //Main table view
     @IBOutlet weak var tableView: UITableView!
 
     @IBAction func addingToCalendar(_ sender: UIButton) {
+        
+        func getFunctionName(monthName: String) -> Int{
+            switch monthName {
+            case "September":
+                return 9
+            case "October":
+                return 10
+            case "November":
+                return 11
+            case "December":
+                return 12
+            default:
+                return 0
+            }
+        }
+        
+        dateComponents.year = 2019
+        var getMonth = String(self.theMonthData[indexPathSelected!.section].month)
+        var getDate = Int(self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].date)
+        
+        dateComponents.month = getFunctionName(monthName: getMonth)
+        dateComponents.day = getDate
+        dateComponents.timeZone = TimeZone(abbreviation: "EST")
+        dateComponents.hour = 10
+        dateComponents.minute = 00
+    
+        var Date = Calendar.current.date(from: dateComponents)
+     
+        
+        addEventToCalendar(title: "Mgt 100", description: "TA Office Hours", startDate: Date!, endDate: Date!.addingTimeInterval(2*60*60))
+        
     }
     
 
@@ -62,6 +95,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view.
         self.grabFirebaseData()
         self.setUpTableView()
+    }
+    
+    func addEventToCalendar(title: String, description: String?, startDate: Date, endDate: Date, completion: ((_ success: Bool, _ error: NSError?) -> Void)? = nil) {
+        let eventStore = EKEventStore()
+        
+        eventStore.requestAccess(to: .event, completion: { (granted, error) in
+            if (granted) && (error == nil) {
+                let event = EKEvent(eventStore: eventStore)
+                event.title = title
+                event.startDate = startDate
+                event.endDate = endDate
+                event.notes = description
+                event.calendar = eventStore.defaultCalendarForNewEvents
+                do {
+                    try eventStore.save(event, span: .thisEvent)
+                    let refreshAlert = UIAlertController(title: "Successfull!", message: "Event on '\(self.theMonthData[(self.indexPathSelected!.section)].month), \(String( self.theMonthData[(self.indexPathSelected!.section)].description[self.indexPathSelected!.row].date))' added to calendar", preferredStyle: UIAlertController.Style.alert)
+                    refreshAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(refreshAlert, animated: true, completion: nil)
+                } catch let e as NSError {
+                    completion?(false, e)
+                    return
+                }
+                
+            } else {
+                completion?(false, error as NSError?)
+            }
+        })
     }
     
     func grabFirebaseData(){

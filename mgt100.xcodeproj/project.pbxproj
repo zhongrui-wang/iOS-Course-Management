@@ -25,6 +25,7 @@
 		22FD223D2384E10A00EF9B78 /* DetailedTAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FD223C2384E10A00EF9B78 /* DetailedTAViewController.swift */; };
 		23A80E4F23809C4900F8F9AF /* tableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A80E4E23809C4900F8F9AF /* tableViewCell.swift */; };
 		23A80E5123809D1F00F8F9AF /* readmore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A80E5023809D1F00F8F9AF /* readmore.swift */; };
+		23E734A9238F3AA100E282C1 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E734A8238F3AA100E282C1 /* EventKit.framework */; };
 		59D3B03150E7A9254BCD8638 /* Pods_mgt100.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6BAFD7B646C57C4384380B /* Pods_mgt100.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		22FD223C2384E10A00EF9B78 /* DetailedTAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedTAViewController.swift; sourceTree = "<group>"; };
 		23A80E4E23809C4900F8F9AF /* tableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewCell.swift; sourceTree = "<group>"; };
 		23A80E5023809D1F00F8F9AF /* readmore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = readmore.swift; sourceTree = "<group>"; };
+		23E734A8238F3AA100E282C1 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		4A6BAFD7B646C57C4384380B /* Pods_mgt100.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mgt100.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7325BBAFE70642081BF289CC /* Pods-mgt100.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mgt100.release.xcconfig"; path = "Target Support Files/Pods-mgt100/Pods-mgt100.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E734A9238F3AA100E282C1 /* EventKit.framework in Frameworks */,
 				59D3B03150E7A9254BCD8638 /* Pods_mgt100.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +140,7 @@
 		F2051DA179F56AB2B43FECF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23E734A8238F3AA100E282C1 /* EventKit.framework */,
 				4A6BAFD7B646C57C4384380B /* Pods_mgt100.framework */,
 			);
 			name = Frameworks;
