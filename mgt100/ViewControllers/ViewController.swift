@@ -169,7 +169,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //Each section
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! tableViewCell
-
+        
+        // Shadow
+        cell.layer.shadowColor = UIColor.darkGray.cgColor
+        cell.layer.shadowRadius = 4
+        cell.layer.shadowOpacity = 0.5
+        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cell.layer.masksToBounds = false
+        
         cell.date.text = String(self.theMonthData[indexPath.section].description[indexPath.row].date)
         
         let arrayOfAssignment = self.theMonthData[indexPath.section].description[indexPath.row].assignments.joined(separator: ", ")
@@ -222,6 +229,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (self.theFallData?.results[section].description.count)!
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.contentView.layer.masksToBounds = true
     }
     
     
