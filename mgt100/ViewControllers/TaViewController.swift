@@ -67,7 +67,7 @@ class TaViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     func setUpTableView(){
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,10 +75,30 @@ class TaViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text = String(self.theTaData[indexPath.section].tas[indexPath.row].name)
-//             cell.textLabel?.text = "asdad"
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "taCell", for: indexPath) as! TATableViewCell
+        
+        cell.taName.text = String(self.theTaData[indexPath.section].tas[indexPath.row].name)
+        cell.taMajor.text = String(self.theTaData[indexPath.section].tas[indexPath.row].major)
+        
+        let url = URL(string: String(self.theTaData[indexPath.section].tas[indexPath.row].image))
+        let data = try? Data(contentsOf: url!)
+        cell.taImage.image = UIImage(data: data!)
+        
         return cell
+    }
+    
+    //Table view header styling
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).backgroundView?.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        let header = view as! UITableViewHeaderFooterView
+        
+        header.textLabel?.textColor = UIColor.black
+        header.textLabel?.font = UIFont(name: "Poppins-Bold", size: 25)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(75)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

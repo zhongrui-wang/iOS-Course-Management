@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		154DAE8C23931F780060DB69 /* TATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154DAE8B23931F780060DB69 /* TATableViewCell.swift */; };
 		2200F311238E14F80007DCE9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F310238E14F70007DCE9 /* RegisterViewController.swift */; };
 		2200F313238E18F40007DCE9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F312238E18F40007DCE9 /* LoginViewController.swift */; };
 		2200F315238E1B250007DCE9 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F314238E1B250007DCE9 /* ChatViewController.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		0596A116D480E923E44B4406 /* Pods-mgt100.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mgt100.debug.xcconfig"; path = "Target Support Files/Pods-mgt100/Pods-mgt100.debug.xcconfig"; sourceTree = "<group>"; };
+		154DAE8B23931F780060DB69 /* TATableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TATableViewCell.swift; sourceTree = "<group>"; };
 		2200F310238E14F70007DCE9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2200F312238E18F40007DCE9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2200F314238E1B250007DCE9 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				226DB569237CF31700E42CF0 /* Info.plist */,
 				226DB56F237CF5BB00E42CF0 /* GoogleService-Info.plist */,
 				226DB58F237F7BCD00E42CF0 /* Modal.swift */,
+				154DAE8B23931F780060DB69 /* TATableViewCell.swift */,
 			);
 			path = mgt100;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				23A80E5123809D1F00F8F9AF /* readmore.swift in Sources */,
 				2200F325238F31A80007DCE9 /* MessageTableViewCell.swift in Sources */,
 				22FD223923830FA700EF9B78 /* DetailViewController.swift in Sources */,
+				154DAE8C23931F780060DB69 /* TATableViewCell.swift in Sources */,
 				226DB590237F7BCD00E42CF0 /* Modal.swift in Sources */,
 				22FD223B2384D74800EF9B78 /* TaViewController.swift in Sources */,
 				2200F313238E18F40007DCE9 /* LoginViewController.swift in Sources */,

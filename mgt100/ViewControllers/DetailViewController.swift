@@ -103,17 +103,27 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
                 self.present(refreshAlert, animated: true, completion: nil)
             } else {
+                // ********* Reading Pdf View *********
                 let webView = WKWebView(frame: self.view.frame)
                 let urlRequest = URLRequest(url: URL(string: arrayOfReadings[indexPath.row].link)!)
                 webView.load(urlRequest as URLRequest)
-                
                 let pdfVC = UIViewController()
                 pdfVC.view.addSubview(webView)
                 pdfVC.title = arrayOfReadings[indexPath.row].name
-                self.navigationController?.pushViewController(pdfVC, animated: true)
+                let button = UIButton(frame: CGRect(x: 0, y: 50, width: pdfVC.view.frame.width, height: 55))
+                button.backgroundColor = #colorLiteral(red: 0.2235294118, green: 0.3529411765, blue: 1, alpha: 1)
+                button.setTitle("Close", for: .normal)
+                button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+                button.addTarget(self, action: #selector(closePdfController), for: .touchUpInside)
+                pdfVC.view.addSubview(button)
+                self.present(pdfVC, animated: true, completion: nil)
             }
            
         }
+    }
+    // ********* Close Pdf View Controller Button *********
+    @objc func closePdfController(sender: UIButton!) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func setupMap(){

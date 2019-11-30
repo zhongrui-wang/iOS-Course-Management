@@ -17,6 +17,8 @@ class DetailedTAViewController: UIViewController {
     @IBOutlet weak var graduation: UILabel!
     @IBOutlet weak var major: UILabel!
     @IBOutlet weak var funFact: UILabel!
+    @IBOutlet weak var taIMageView: UIView!
+    
     
     var teachingName: String?
     var teachImage: String?
@@ -39,9 +41,35 @@ class DetailedTAViewController: UIViewController {
         major.text = detailMajor
         funFact.text = detailFunFact
         
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setToolbarHidden(true, animated: false)
         
-
-        // Do any additional setup after loading the view.
+        taIMageView.layer.shadowRadius = 4
+        taIMageView.layer.shadowOpacity = 0.5
+        taIMageView.layer.shadowOffset = CGSize(width: 0, height: 0)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+//        UIView.animate(withDuration: 0.4) {
+            statusBar?.backgroundColor = UIColor(red: 57/255.0, green: 90/255.0, blue: 255/255.0, alpha: 1)
+//        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+//        UIView.animate(withDuration: 0.3) {
+            statusBar?.backgroundColor = UIColor.white
+//        }
+    }
+    
+    
+    @IBAction func goBackButton(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
     
 
