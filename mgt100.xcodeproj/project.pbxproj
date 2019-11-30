@@ -39,6 +39,9 @@
 		22CCE7822391CCAD003E26FB /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22CCE7702391CCAD003E26FB /* Poppins-Medium.ttf */; };
 		22CCE7832391CCAD003E26FB /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22CCE7712391CCAD003E26FB /* Poppins-MediumItalic.ttf */; };
 		22CCE7842391CCDA003E26FB /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22CCE7682391CCAC003E26FB /* Poppins-ExtraBoldItalic.ttf */; };
+		22E1D60523931DB00059661F /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E1D60423931DB00059661F /* QuestionViewController.swift */; };
+		22E1D60823931FF10059661F /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E1D60623931FF10059661F /* QuestionTableViewCell.swift */; };
+		22E1D60923931FF10059661F /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E1D60723931FF10059661F /* QuestionTableViewCell.xib */; };
 		22FD223923830FA700EF9B78 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FD223823830FA700EF9B78 /* DetailViewController.swift */; };
 		22FD223B2384D74800EF9B78 /* TaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FD223A2384D74800EF9B78 /* TaViewController.swift */; };
 		22FD223D2384E10A00EF9B78 /* DetailedTAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FD223C2384E10A00EF9B78 /* DetailedTAViewController.swift */; };
@@ -85,6 +88,9 @@
 		22CCE76F2391CCAD003E26FB /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		22CCE7702391CCAD003E26FB /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		22CCE7712391CCAD003E26FB /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
+		22E1D60423931DB00059661F /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		22E1D60623931FF10059661F /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		22E1D60723931FF10059661F /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
 		22FD223823830FA700EF9B78 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		22FD223A2384D74800EF9B78 /* TaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaViewController.swift; sourceTree = "<group>"; };
 		22FD223C2384E10A00EF9B78 /* DetailedTAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedTAViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 				22FD223C2384E10A00EF9B78 /* DetailedTAViewController.swift */,
 				2200F314238E1B250007DCE9 /* ChatViewController.swift */,
 				230CDC3623921C9700FA916F /* FeedbackViewController.swift */,
+				22E1D60423931DB00059661F /* QuestionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -137,6 +144,8 @@
 			children = (
 				2200F323238F31A80007DCE9 /* MessageTableViewCell.swift */,
 				2200F324238F31A80007DCE9 /* MessageTableViewCell.xib */,
+				22E1D60623931FF10059661F /* QuestionTableViewCell.swift */,
+				22E1D60723931FF10059661F /* QuestionTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +313,7 @@
 				22CCE7782391CCAD003E26FB /* Poppins-ThinItalic.ttf in Resources */,
 				226DB563237CF31500E42CF0 /* Main.storyboard in Resources */,
 				22CCE7832391CCAD003E26FB /* Poppins-MediumItalic.ttf in Resources */,
+				22E1D60923931FF10059661F /* QuestionTableViewCell.xib in Resources */,
 				22CCE7842391CCDA003E26FB /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				22CCE7732391CCAD003E26FB /* Poppins-ExtraLight.ttf in Resources */,
 			);
@@ -359,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2200F311238E14F80007DCE9 /* RegisterViewController.swift in Sources */,
+				22E1D60823931FF10059661F /* QuestionTableViewCell.swift in Sources */,
 				226DB560237CF31500E42CF0 /* ViewController.swift in Sources */,
 				2200F315238E1B250007DCE9 /* ChatViewController.swift in Sources */,
 				230CDC3723921C9700FA916F /* FeedbackViewController.swift in Sources */,
@@ -370,6 +381,7 @@
 				22FD223923830FA700EF9B78 /* DetailViewController.swift in Sources */,
 				154DAE8C23931F780060DB69 /* TATableViewCell.swift in Sources */,
 				226DB590237F7BCD00E42CF0 /* Modal.swift in Sources */,
+				22E1D60523931DB00059661F /* QuestionViewController.swift in Sources */,
 				22FD223B2384D74800EF9B78 /* TaViewController.swift in Sources */,
 				2200F313238E18F40007DCE9 /* LoginViewController.swift in Sources */,
 				226DB55E237CF31500E42CF0 /* AppDelegate.swift in Sources */,
