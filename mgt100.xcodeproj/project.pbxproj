@@ -41,6 +41,7 @@
 		22FD223923830FA700EF9B78 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FD223823830FA700EF9B78 /* DetailViewController.swift */; };
 		22FD223B2384D74800EF9B78 /* TaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FD223A2384D74800EF9B78 /* TaViewController.swift */; };
 		22FD223D2384E10A00EF9B78 /* DetailedTAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FD223C2384E10A00EF9B78 /* DetailedTAViewController.swift */; };
+		230CDC3723921C9700FA916F /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CDC3623921C9700FA916F /* FeedbackViewController.swift */; };
 		23A80E4F23809C4900F8F9AF /* tableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A80E4E23809C4900F8F9AF /* tableViewCell.swift */; };
 		23A80E5123809D1F00F8F9AF /* readmore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A80E5023809D1F00F8F9AF /* readmore.swift */; };
 		23E734A9238F3AA100E282C1 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E734A8238F3AA100E282C1 /* EventKit.framework */; };
@@ -85,6 +86,7 @@
 		22FD223823830FA700EF9B78 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		22FD223A2384D74800EF9B78 /* TaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaViewController.swift; sourceTree = "<group>"; };
 		22FD223C2384E10A00EF9B78 /* DetailedTAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedTAViewController.swift; sourceTree = "<group>"; };
+		230CDC3623921C9700FA916F /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		23A80E4E23809C4900F8F9AF /* tableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewCell.swift; sourceTree = "<group>"; };
 		23A80E5023809D1F00F8F9AF /* readmore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = readmore.swift; sourceTree = "<group>"; };
 		23E734A8238F3AA100E282C1 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
@@ -123,6 +125,7 @@
 				22FD223A2384D74800EF9B78 /* TaViewController.swift */,
 				22FD223C2384E10A00EF9B78 /* DetailedTAViewController.swift */,
 				2200F314238E1B250007DCE9 /* ChatViewController.swift */,
+				230CDC3623921C9700FA916F /* FeedbackViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				2200F311238E14F80007DCE9 /* RegisterViewController.swift in Sources */,
 				226DB560237CF31500E42CF0 /* ViewController.swift in Sources */,
 				2200F315238E1B250007DCE9 /* ChatViewController.swift in Sources */,
+				230CDC3723921C9700FA916F /* FeedbackViewController.swift in Sources */,
 				22FD223D2384E10A00EF9B78 /* DetailedTAViewController.swift in Sources */,
 				23A80E4F23809C4900F8F9AF /* tableViewCell.swift in Sources */,
 				2200F31E238F2F540007DCE9 /* message.swift in Sources */,
