@@ -72,8 +72,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         dateComponents.year = 2019
-        var getMonth = String(self.theMonthData[indexPathSelected!.section].month)
-        var getDate = Int(self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].date)
+        let getMonth = String(self.theMonthData[indexPathSelected!.section].month)
+        let getDate = Int(self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].date)
         
         dateComponents.month = getFunctionName(monthName: getMonth)
         dateComponents.day = getDate
@@ -81,7 +81,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         dateComponents.hour = 10
         dateComponents.minute = 00
     
-        var Date = Calendar.current.date(from: dateComponents)
+        let Date = Calendar.current.date(from: dateComponents)
      
         
         addEventToCalendar(title: "Mgt 100", description: "TA Office Hours", startDate: Date!, endDate: Date!.addingTimeInterval(2*60*60))
@@ -146,6 +146,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func setUpTableView(){
         tableView.dataSource = self
         tableView.delegate = self
+    
+        navigationController?.navigationBar.barTintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
     }
 
     //Header of each section
@@ -159,23 +168,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //Table view header styling
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        (view as! UITableViewHeaderFooterView).backgroundView?.backgroundColor = UIColor(red: 0.18, green: 0.49, blue: 0.82, alpha: 1)
+        (view as! UITableViewHeaderFooterView).backgroundView?.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = UIColor.white
-        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 20.0)
+ 
+        header.textLabel?.textColor = UIColor.black
+        header.textLabel?.font = UIFont(name: "Poppins-Bold", size: 30)
+
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(75)
     }
 
-
+ 
     //Each section
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! tableViewCell
         
+        
+        
         // Shadow
-        cell.layer.shadowColor = UIColor.darkGray.cgColor
-        cell.layer.shadowRadius = 4
-        cell.layer.shadowOpacity = 0.5
-        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
-        cell.layer.masksToBounds = false
+        cell.detailFrameCell.layer.shadowColor = UIColor.darkGray.cgColor
+        cell.detailFrameCell.layer.shadowRadius = 2
+        cell.detailFrameCell.layer.shadowOpacity = 0.3
+        cell.detailFrameCell.layer.shadowOffset = CGSize(width: 0, height: 3)
+        cell.detailFrameCell.layer.masksToBounds = false
+
         
         cell.date.text = String(self.theMonthData[indexPath.section].description[indexPath.row].date)
         
@@ -204,11 +222,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
         if dateCellExpanded {
             dateCellExpanded = false
+            if let cell = tableView.cellForRow(at: indexPath) as? tableViewCell {
+                UIView.animate(withDuration: 0.3) {
+                    cell.detailFrameCell.frame.size.height = CGFloat(82)
+                }
+            }
         } else {
             dateCellExpanded = true
+            if let cell = tableView.cellForRow(at: indexPath) as? tableViewCell {
+                cell.detailFrameCell.frame.size.height = CGFloat(530)
+            }
         }
         expandedIndexpath = indexPath
         tableView.beginUpdates()
@@ -216,15 +241,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         indexPathSelected = indexPath
     }
     
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(expandedIndexpath == indexPath){
             if dateCellExpanded {
-                return 484
+                return 550
             } else {
-                return 65.33
+                return 100
             }
         }
-        return 65.33
+        return 100
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

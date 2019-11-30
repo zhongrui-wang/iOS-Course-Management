@@ -11,6 +11,8 @@ import MapKit
 
 class tableViewCell: UITableViewCell {
 
+    @IBOutlet weak var detailFrameCell: UIView!
+    
     @IBOutlet weak var date: UILabel!
     
     @IBOutlet weak var detailReading: UILabel!
@@ -27,7 +29,8 @@ class tableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
 }
+
+
