@@ -32,7 +32,7 @@ class ChatViewController: UIViewController {
     
     func loadMessages(){
         
-        db.collection("messages").order(by: "date").addSnapshotListener { (querySnapshot, error) in
+        db.collection("messages").order(by: "date", descending: true).addSnapshotListener { (querySnapshot, error) in
             
             self.messages = []
             if let e = error {
