@@ -34,13 +34,23 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return .lightContent
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+        UIView.animate(withDuration: 0.4) {
+            statusBar?.backgroundColor = UIColor(red: 57/255.0, green: 90/255.0, blue: 255/255.0, alpha: 1)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+        UIView.animate(withDuration: 0.3) {
+            statusBar?.backgroundColor = UIColor.white
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
-        //statusBar?.backgroundColor = UIColor.white
-//        statusBar?.backgroundColor = UIColor(red: 57/255.0, green: 90/255.0, blue: 255/255.0, alpha: 1)
-//        
+    
         dateLabel.text = date
         detailedAssignments.text = assignmnets
         setUpTableView()
@@ -51,7 +61,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.getMapData()
             }
         }
-        // Do any additional setup after loading the view.
     }
     
     func setUpTableView(){
