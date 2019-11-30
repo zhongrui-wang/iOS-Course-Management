@@ -12,3 +12,8 @@ struct Message {
     let sender: String
     let body: String
 }
+
+struct Questions {
+    let sender: String
+    let body: String
+}

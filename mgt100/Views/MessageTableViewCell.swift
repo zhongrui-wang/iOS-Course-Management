@@ -19,9 +19,13 @@ class MessageTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        messageBubble.layer.cornerRadius = messageBubble.frame.size.height / 5
-        
+    
+        messageBubble.layer.shadowColor = UIColor.darkGray.cgColor
+        messageBubble.layer.shadowRadius = 2
+        messageBubble.layer.shadowOpacity = 0.3
+        messageBubble.layer.shadowOffset = CGSize(width: 0, height: 3)
+        messageBubble.layer.masksToBounds = false
+        messageBubble.layer.cornerRadius = 2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
