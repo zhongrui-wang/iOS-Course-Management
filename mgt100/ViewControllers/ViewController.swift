@@ -13,6 +13,7 @@ import Firebase
 import EventKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     
     struct APIResults:Codable {
         let results: [Months]
@@ -152,10 +153,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
-    }
 
     //Header of each section
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -172,7 +169,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let header = view as! UITableViewHeaderFooterView
  
         header.textLabel?.textColor = UIColor.black
-        header.textLabel?.font = UIFont(name: "Poppins-Bold", size: 30)
+        header.textLabel?.font = UIFont(name: "Poppins-Bold", size: 25)
 
     }
     
@@ -263,18 +260,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    @IBAction func loadDetail(_ sender: UIButton) {
-        let mainStoryBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let detailedViewController = mainStoryBoard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        
-        let arrayOfAssignment = self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].assignments.joined(separator: ", ")
-        
-        detailedViewController.arrayOfReadings = self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].readings
-        detailedViewController.assignmnets = arrayOfAssignment
-        detailedViewController.date = "\(self.theMonthData[(indexPathSelected!.section)].month), \(String( self.theMonthData[(indexPathSelected!.section)].description[indexPathSelected!.row].date))"
-        detailedViewController.teachingAssistans = self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].tas
-        
-        self.navigationController?.pushViewController(detailedViewController, animated: true)
+   
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is DetailViewController
+        {
+            let detailedViewController = segue.destination as? DetailViewController
+            
+            let arrayOfAssignment = self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].assignments.joined(separator: ", ")
+            
+            detailedViewController?.arrayOfReadings = self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].readings
+            
+            detailedViewController?.assignmnets = arrayOfAssignment
+            
+            detailedViewController?.date = "\(self.theMonthData[(indexPathSelected!.section)].month), \(String( self.theMonthData[(indexPathSelected!.section)].description[indexPathSelected!.row].date))"
+            
+            detailedViewController?.teachingAssistans = self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].tas
+            
+        }
     }
 
 }

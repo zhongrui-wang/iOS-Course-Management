@@ -30,9 +30,17 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var arrayOfReadings: [ViewController.Readings] = []
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+        //statusBar?.backgroundColor = UIColor.white
+//        statusBar?.backgroundColor = UIColor(red: 57/255.0, green: 90/255.0, blue: 255/255.0, alpha: 1)
+//        
         dateLabel.text = date
         detailedAssignments.text = assignmnets
         setUpTableView()
