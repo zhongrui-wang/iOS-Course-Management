@@ -276,6 +276,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.navigationController?.pushViewController(detailedViewController, animated: true)
     }
+    
+    
+    
+    
+    
+    
+    
+    
 
 }
 
