@@ -243,9 +243,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(expandedIndexpath == indexPath){
             if dateCellExpanded {
+                if let cell = tableView.cellForRow(at: indexPath) as? tableViewCell {
+                    cell.detailFrameCell.frame.size.height = CGFloat(530)
+                }
                 return 550
             } else {
+                if let cell = tableView.cellForRow(at: indexPath) as? tableViewCell {
+                    UIView.animate(withDuration: 0.3) {
+                        cell.detailFrameCell.frame.size.height = CGFloat(82)
+                    }
+                }
                 return 100
+            }
+        }
+        if let cell = tableView.cellForRow(at: indexPath) as? tableViewCell {
+            UIView.animate(withDuration: 0.3) {
+                cell.detailFrameCell.frame.size.height = CGFloat(82)
             }
         }
         return 100
