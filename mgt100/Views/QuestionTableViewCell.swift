@@ -13,6 +13,7 @@ class QuestionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var messageBubble: UIView!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var author: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +25,8 @@ class QuestionTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+        messageBubble.layer.borderWidth = 1
+        messageBubble.layer.borderColor = UIColor.black.cgColor
         // Configure the view for the selected state
     }
     

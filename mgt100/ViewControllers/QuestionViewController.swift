@@ -15,6 +15,7 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet weak var questionTableView: UITableView!
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var questionTitleLabel: UILabel!
     
     
     @IBOutlet weak var questionTextField: UITextField!
@@ -26,11 +27,21 @@ class QuestionViewController: UIViewController {
     
     var questionName: String?
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         questionTableView.dataSource = self
         questionLabel.text = questionName
+        questionLabel.font = UIFont(name: "Poppins-Regular", size: 17)
         
         questionTableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         
@@ -95,6 +106,7 @@ extension QuestionViewController: UITableViewDataSource {
         let cell = questionTableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! QuestionTableViewCell
         
         cell.label.text = question.body
+        cell.author.text = "Sent by \(question.sender)"
         
         
         return cell
