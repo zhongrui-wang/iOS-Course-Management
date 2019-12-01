@@ -37,12 +37,27 @@ class TaViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var tableView: UITableView!
     var theTasData: APIResults?
     var theTaData: [Tas] = []
-
+    var scrollingWheel:UIActivityIndicatorView = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
-        self.setUpTableView()
         super.viewDidLoad()
+        self.setUpTableView()
         self.grabFirebaseData()
-        // Do any additional setup after loading the view.
+        
+        scrollingWheel.center = self.view.center
+        scrollingWheel.hidesWhenStopped = true
+        scrollingWheel.style = UIActivityIndicatorView.Style.gray
+        view.addSubview(scrollingWheel)
+        scrollingWheel.startAnimating()
+        DispatchQueue.global(qos: .userInitiated).async {
+            print("here")
+            self.grabFirebaseData()
+            DispatchQueue.main.async {
+                print("finished")
+                self.scrollingWheel.stopAnimating()
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func grabFirebaseData(){
@@ -59,15 +74,12 @@ class TaViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
             for i in self.theTasData!.teaching_assistant{
                 self.theTaData.append(i)
             }
-
-            self.tableView.reloadData()
         })
     }
     
     func setUpTableView(){
         tableView.dataSource = self
         tableView.delegate = self
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
