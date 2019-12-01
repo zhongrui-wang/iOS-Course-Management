@@ -71,21 +71,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 return 0
             }
         }
+        if self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].tas[0] != "None"{
+            dateComponents.year = 2019
+            let getMonth = String(self.theMonthData[indexPathSelected!.section].month)
+            let getDate = Int(self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].date)
+            
+            dateComponents.month = getFunctionName(monthName: getMonth)
+            dateComponents.day = getDate
+            dateComponents.timeZone = TimeZone(abbreviation: "EST")
+            dateComponents.hour = 10
+            dateComponents.minute = 00
         
-        dateComponents.year = 2019
-        let getMonth = String(self.theMonthData[indexPathSelected!.section].month)
-        let getDate = Int(self.theMonthData[indexPathSelected!.section].description[indexPathSelected!.row].date)
-        
-        dateComponents.month = getFunctionName(monthName: getMonth)
-        dateComponents.day = getDate
-        dateComponents.timeZone = TimeZone(abbreviation: "EST")
-        dateComponents.hour = 10
-        dateComponents.minute = 00
-    
-        let Date = Calendar.current.date(from: dateComponents)
-     
-        
-        addEventToCalendar(title: "Mgt 100", description: "TA Office Hours", startDate: Date!, endDate: Date!.addingTimeInterval(2*60*60))
+            let Date = Calendar.current.date(from: dateComponents)
+            
+            
+            addEventToCalendar(title: "Mgt 100", description: "TA Office Hours", startDate: Date!, endDate: Date!.addingTimeInterval(2*60*60))
+        }
         
     }
     
