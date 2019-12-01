@@ -84,6 +84,7 @@ class TaViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let url = URL(string: String(self.theTaData[indexPath.section].tas[indexPath.row].image))
         let data = try? Data(contentsOf: url!)
         cell.taImage.image = UIImage(data: data!)
+        cell.selectionStyle = .none
         
         return cell
     }

@@ -44,9 +44,10 @@ class DetailedTAViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
         navigationController?.setToolbarHidden(true, animated: false)
         
-        taIMageView.layer.shadowRadius = 4
+        taIMageView.layer.shadowColor = UIColor.darkGray.cgColor
+        taIMageView.layer.shadowRadius = 5
         taIMageView.layer.shadowOpacity = 0.5
-        taIMageView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        taIMageView.layer.shadowOffset = CGSize(width: 0, height: 3)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
