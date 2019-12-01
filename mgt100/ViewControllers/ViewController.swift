@@ -86,6 +86,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             
             addEventToCalendar(title: "Mgt 100", description: "TA Office Hours", startDate: Date!, endDate: Date!.addingTimeInterval(2*60*60))
+        }else{
+            let refreshAlert = UIAlertController(title: "Sorry!", message: "Unfortunately, there is no office hours for this day!", preferredStyle: UIAlertController.Style.alert)
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(refreshAlert, animated: true, completion: nil)
         }
         
     }
@@ -112,6 +116,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 event.calendar = eventStore.defaultCalendarForNewEvents
                 do {
                     try eventStore.save(event, span: .thisEvent)
+                    
                     let refreshAlert = UIAlertController(title: "Successfull!", message: "Event on '\(self.theMonthData[(self.indexPathSelected!.section)].month), \(String( self.theMonthData[(self.indexPathSelected!.section)].description[self.indexPathSelected!.row].date))' added to calendar", preferredStyle: UIAlertController.Style.alert)
                     refreshAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
                     self.present(refreshAlert, animated: true, completion: nil)
@@ -121,6 +126,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
                 
             } else {
+                
                 completion?(false, error as NSError?)
             }
         })
