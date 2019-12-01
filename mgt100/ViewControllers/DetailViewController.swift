@@ -70,6 +70,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         readingTableView.delegate = self
         taTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         readingTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,11 +85,13 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if(tableView == self.taTableView){
             let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
             cell.textLabel!.text = teachingAssistans[indexPath.row]
+            cell.textLabel?.font = UIFont(name: "Poppins-Medium", size: 17)
             return cell
         } else {
             let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
             cell.textLabel?.text = arrayOfReadings[indexPath.row].name
-            
+
+            cell.textLabel?.font = UIFont(name: "Poppins-Medium", size: 17)
             return cell
         }
     }
