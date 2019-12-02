@@ -101,7 +101,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         } else {
             if(arrayOfReadings[indexPath.row].link == ""){
-                let refreshAlert = UIAlertController(title: "No pdf available", message: "Sorry we dont have this pdf in our database", preferredStyle: UIAlertController.Style.alert)
+                let refreshAlert = UIAlertController(title: "Reading not available", message: "Sorry we dont have this reading in our database", preferredStyle: UIAlertController.Style.alert)
                 refreshAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
                 
                 self.present(refreshAlert, animated: true, completion: nil)
