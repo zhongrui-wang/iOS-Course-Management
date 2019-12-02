@@ -15,6 +15,7 @@ class FeedbackViewController: UIViewController {
 
     @IBOutlet weak var question: UILabel!
     
+    @IBOutlet weak var titleLabel: UILabel!
     
     
     @IBOutlet weak var progress: UIProgressView!
@@ -79,6 +80,8 @@ class FeedbackViewController: UIViewController {
     }
     
     
+    
+    
     struct Answers {
         let question: String
         let answer: String
@@ -95,8 +98,30 @@ class FeedbackViewController: UIViewController {
     
     
     var answers = Answerset()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+        UIView.animate(withDuration: 0) {
+            statusBar?.backgroundColor = UIColor(red: 57/255.0, green: 90/255.0, blue: 255/255.0, alpha: 1)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+        UIView.animate(withDuration: 0) {
+            statusBar?.backgroundColor = UIColor.white
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleLabel.font = UIFont(name: "Poppins-Bold", size: 34)
+        
         if defaults.bool(forKey: "finishedOrNot") == true {
             question.text = "You have finished!"
             question.textAlignment = .center
