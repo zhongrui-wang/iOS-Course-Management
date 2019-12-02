@@ -76,22 +76,30 @@ class QuestionViewController: UIViewController {
     
     
     @IBAction func sendQuestion(_ sender: UIButton) {
-        if let questionBody = questionTextField.text, let questionSender = Auth.auth().currentUser?.email {
-            db.collection("messages").document(questionName!).collection("questions").document(questionBody).setData([
-                "sender": questionSender,
-                "body": questionBody,
-                "date": Date().timeIntervalSince1970
-                ]) { (error) in
-                    if let e = error {
-                        print("There was an issue saving the data to firestore, \(e)")
-                    } else {
-                        DispatchQueue.main.async {
-                            self.questionTextField.text = ""
+        if(questionTextField.text!.count > 5){
+            if let questionBody = questionTextField.text, let questionSender = Auth.auth().currentUser?.email {
+                db.collection("messages").document(questionName!).collection("questions").document(questionBody).setData([
+                    "sender": questionSender,
+                    "body": questionBody,
+                    "date": Date().timeIntervalSince1970
+                    ]) { (error) in
+                        if let e = error {
+                            print("There was an issue saving the data to firestore, \(e)")
+                        } else {
+                            DispatchQueue.main.async {
+                                self.questionTextField.text = ""
+                            }
+                            print("Successfully saved data.")
                         }
-                        print("Successfully saved data.")
                     }
                 }
-            }
+        }
+        else {
+            let refreshAlert = UIAlertController(title: "Invalid input", message: "Minimum value is 5 characters", preferredStyle: UIAlertController.Style.alert)
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            
+            self.present(refreshAlert, animated: true, completion: nil)
+        }
     }
 }
 

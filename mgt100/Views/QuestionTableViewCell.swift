@@ -18,15 +18,15 @@ class QuestionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-       
+        messageBubble.layer.borderWidth = 1
+        messageBubble.layer.borderColor = UIColor.black.cgColor
         
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        messageBubble.layer.borderWidth = 1
-        messageBubble.layer.borderColor = UIColor.black.cgColor
+        
         // Configure the view for the selected state
     }
     

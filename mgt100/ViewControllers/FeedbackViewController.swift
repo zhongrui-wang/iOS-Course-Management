@@ -15,6 +15,8 @@ class FeedbackViewController: UIViewController {
 
     @IBOutlet weak var question: UILabel!
     
+    
+    
     @IBOutlet weak var progress: UIProgressView!
     
     @IBOutlet weak var button1: UIButton!
@@ -76,35 +78,6 @@ class FeedbackViewController: UIViewController {
         })
     }
     
-    
-//    struct Question {
-//        let questions: String
-//        let button1: String
-//        let button2: String
-//        let button3: String
-//
-//        init(q:String, a:String, b:String, c: String) {
-//            questions = q
-//            button1 = a
-//            button2 = b
-//            button3 = c
-//        }
-//    }
-    
-//    struct Quizbrain {
-//        let quiz = [Question(q: "Thee instructor presented content in an organized manner.", a: "Agree", b: "Neutral", c: "Disagree"),
-//                    Question(q: "The instructor explained the lecture clearly.", a: "Agree", b: "Neutral", c: "Disagree"),
-//                    Question(q: "The instructor was helpful when I had difficulties or questions.", a: "Agree", b: "Neutral", c: "Disagree"),
-//                    Question(q: "The instructor provided clear constructive feedback.", a: "Agree", b: "Neutral", c: "Disagree"),
-//                    Question(q: "The instructor encouraged student questions and participation.", a: "Agree", b: "Neutral", c: "Disagree"),
-//                    Question(q: "The lecture developed my abilities and skills for the subject.", a: "Agree", b: "Neutral", c: "Disagree"),
-//                    Question(q: "How much do you learn from this lecture?", a: "100%", b: "80%", c: "50%"),
-//                    Question(q: "How many former lectures did you review?", a: "100%", b: "80%", c: "50%"),
-//                    Question(q: "On average, how many hours per week have you spent on this course?", a: "10", b: "6", c: "2")
-//        ]
-//
-//        var questionNum = 0
-//    }
     
     struct Answers {
         let question: String

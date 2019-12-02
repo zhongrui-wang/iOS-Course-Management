@@ -57,23 +57,31 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
-        if let messageBody = messageInputField.text, let messageSender = Auth.auth().currentUser?.email {
-            db.collection("messages").document(messageBody).setData([
-                "sender": messageSender,
-                "body": messageBody,
-                "date": Date().timeIntervalSince1970
+        
+        if(messageInputField.text!.count > 5){
+            if let messageBody = messageInputField.text, let messageSender = Auth.auth().currentUser?.email {
+                db.collection("messages").document(messageBody).setData([
+                    "sender": messageSender,
+                    "body": messageBody,
+                    "date": Date().timeIntervalSince1970
                 ]) { (error) in
-                if let e = error {
-                    print("There was an issue saving the data to firestore, \(e)")
-                } else {
-                    DispatchQueue.main.async {
-                        self.messageInputField.text = ""
+                    if let e = error {
+                        print("There was an issue saving the data to firestore, \(e)")
+                    } else {
+                        DispatchQueue.main.async {
+                            self.messageInputField.text = ""
+                        }
+                        print("Successfully saved data.")
                     }
-                    print("Successfully saved data.")
                 }
             }
         }
-    
+        else {
+            let refreshAlert = UIAlertController(title: "Invalid input", message: "Minimum value is 5 characters", preferredStyle: UIAlertController.Style.alert)
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            
+            self.present(refreshAlert, animated: true, completion: nil)
+        }
     }
     
     
@@ -107,6 +115,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.label.textColor = UIColor.black
         
         cell.label.font = UIFont(name: "Poppins-Medium", size: 16)
+        cell.selectionStyle = .none
         return cell
     }
     
