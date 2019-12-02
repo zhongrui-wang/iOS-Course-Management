@@ -532,7 +532,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S32597R488;
+				DEVELOPMENT_TEAM = 2T4MDPP2MX;
 				INFOPLIST_FILE = mgt100/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -551,7 +551,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S32597R488;
+				DEVELOPMENT_TEAM = 2T4MDPP2MX;
 				INFOPLIST_FILE = mgt100/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
