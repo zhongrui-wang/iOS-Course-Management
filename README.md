@@ -1,5 +1,5 @@
 # mgt100
-438 Final Project
+Course Management App
 
 ## Group members:
 -Matheus Bustamante (466212)
@@ -16,5 +16,5 @@ In the feedback view controller, it acts like course evaluation. Questions can b
 
 
 #### References:
--Used resources for messaging feature from the cource 'Development Mobile Apps Swift Gift This Course iOS 13 & Swift 5 - The Complete iOS App Development Bootcamp' from Udemy. 
+Used resources for messaging feature from the cource 'Development Mobile Apps Swift Gift This Course iOS 13 & Swift 5 - The Complete iOS App Development Bootcamp' from Udemy. 
 [Link to course](https://www.udemy.com/course/ios-13-app-development-bootcamp/)
