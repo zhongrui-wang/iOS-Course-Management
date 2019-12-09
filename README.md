@@ -4,7 +4,7 @@
 ## Group members:
 -Matheus Bustamante (466212)
 -Saulet Yskak (467511)
--Zhognrui Wang (466311)
+-Zhongrui Wang (466311)
 -Zak Spilo (466697)
 
 #### References:
